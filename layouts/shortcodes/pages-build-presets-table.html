@@ -1,0 +1,24 @@
+{{- $file := $.Site.GetPage "content/pages/_partials/_build-configuration.md" -}}
+
+<div class="DocsMarkdown--table-wrap">
+  <div class="DocsMarkdown--table-wrap-inner">
+    <table>
+      <thead>
+        <tr>
+          <th>Framework/tool</th>
+          <th>Build command</th>
+          <th>Build directory</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range $_, $v := $file.Params.buildConfigs }}
+        <tr>
+          <td>{{$v.displayName}}</td>
+          <td><code>{{$v.buildCommand}}</code></td>
+          <td><code>{{$v.buildOutputDirectory}}</code></td>
+        </tr>
+      {{ end }}
+      </tbody>
+    </table>
+  </div>
+</div>
